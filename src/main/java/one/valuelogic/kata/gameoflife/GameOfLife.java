@@ -1,9 +1,7 @@
-package one.valuelogic.kata.gameoflive;
+package one.valuelogic.kata.gameoflife;
 
-import java.util.WeakHashMap;
-
-public class GameOfLive {
-    GameOfLive() {
+public class GameOfLife {
+    GameOfLife() {
         this.world = getInitialState();
     }
 
@@ -18,12 +16,8 @@ public class GameOfLive {
     }
 
     Cell[][] tick() {
-        Cell[][] tmpWorld = world;
-
         for(int x=0; x < world.length; x++){
             for(int y = 0; y < world[x].length; y++){
-                //world[x][y].neighboursCount;
-
                 Cell currentCell = world[x][y];
 
                 int neighboursCount = currentCell.getNeighboursCount(x, y);

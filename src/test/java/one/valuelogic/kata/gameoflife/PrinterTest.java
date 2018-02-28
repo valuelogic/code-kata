@@ -1,4 +1,4 @@
-package one.valuelogic.kata.gameoflive;
+package one.valuelogic.kata.gameoflife;
 
 import org.junit.jupiter.api.Test;
 
@@ -6,7 +6,7 @@ class PrinterTest {
 
     @Test
     public void twoByTwo() {
-        GameOfLive gameOfLive = new GameOfLive();
+        GameOfLife gameOfLive = new GameOfLife();
 
         Printer printer = new Printer(3);
 

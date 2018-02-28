@@ -1,4 +1,4 @@
-package one.valuelogic.kata.gameoflive;
+package one.valuelogic.kata.gameoflife;
 
 import java.time.LocalTime;
 
@@ -11,12 +11,12 @@ public class Printer {
         this.size = size;
     }
 
-    private boolean isWorldSquare(GameOfLive.Cell[][] world) {
+    private boolean isWorldSquare(GameOfLife.Cell[][] world) {
         if (world.length != this.size) {
             return false;
         }
 
-        for (GameOfLive.Cell[] row : world) {
+        for (GameOfLife.Cell[] row : world) {
             if (row.length != this.size) {
                 return false;
             }
@@ -25,7 +25,7 @@ public class Printer {
         return true;
     }
 
-    public void print(GameOfLive.Cell[][] world) {
+    public void print(GameOfLife.Cell[][] world) {
         if (world == null || !isWorldSquare(world)) {
             throw new IllegalArgumentException("Invalid world");
         }
@@ -35,7 +35,7 @@ public class Printer {
         System.out.println(String.format("Frame %d, at time %2$tH:%2$tM:%2$tS", ++frameNo, now));
 
         printBounds();
-        for (GameOfLive.Cell[] row: world) {
+        for (GameOfLife.Cell[] row: world) {
             printRow(row);
         }
         printBounds();
@@ -49,7 +49,7 @@ public class Printer {
         System.out.println("+");
     }
 
-    private void printRow(GameOfLive.Cell[] row) {
+    private void printRow(GameOfLife.Cell[] row) {
         System.out.print("|");
         for (int i = 0; i < this.size; i++) {
             System.out.print(row[i].isAlive ? 'X' : ' ');
