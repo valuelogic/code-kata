@@ -6,13 +6,12 @@ class PrinterTest {
 
     @Test
     public void twoByTwo() {
-        Printer printer = new Printer(2);
+        GameOfLive gameOfLive = new GameOfLive();
 
-        boolean[][] world = new boolean[][] {
-                new boolean[] {false, true},
-                new boolean[] {true, false}
-        };
+        Printer printer = new Printer(3);
 
-        printer.print(world);
+        printer.print(gameOfLive.tick());
+        printer.print(gameOfLive.tick());
+        printer.print(gameOfLive.tick());
     }
 }

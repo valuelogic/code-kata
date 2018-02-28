@@ -11,12 +11,12 @@ public class Printer {
         this.size = size;
     }
 
-    private boolean isWorldSquare(boolean[][] world) {
+    private boolean isWorldSquare(GameOfLive.Cell[][] world) {
         if (world.length != this.size) {
             return false;
         }
 
-        for (boolean[] row : world) {
+        for (GameOfLive.Cell[] row : world) {
             if (row.length != this.size) {
                 return false;
             }
@@ -25,7 +25,7 @@ public class Printer {
         return true;
     }
 
-    public void print(boolean[][] world) {
+    public void print(GameOfLive.Cell[][] world) {
         if (world == null || !isWorldSquare(world)) {
             throw new IllegalArgumentException("Invalid world");
         }
@@ -35,7 +35,7 @@ public class Printer {
         System.out.println(String.format("Frame %d, at time %2$tH:%2$tM:%2$tS", ++frameNo, now));
 
         printBounds();
-        for (boolean[] row: world) {
+        for (GameOfLive.Cell[] row: world) {
             printRow(row);
         }
         printBounds();
@@ -49,10 +49,10 @@ public class Printer {
         System.out.println("+");
     }
 
-    private void printRow(boolean[] row) {
+    private void printRow(GameOfLive.Cell[] row) {
         System.out.print("|");
         for (int i = 0; i < this.size; i++) {
-            System.out.print(row[i] ? ' ' : 'x');
+            System.out.print(row[i].isAlive ? 'X' : ' ');
         }
         System.out.println("|");
     }
