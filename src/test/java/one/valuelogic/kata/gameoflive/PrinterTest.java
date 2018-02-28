@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 class PrinterTest {
 
     @Test
-    public void twoByTwo() {
+    void twoByTwo() {
         Printer printer = new Printer(2);
 
         boolean[][] world = new boolean[][] {
